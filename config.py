@@ -83,11 +83,11 @@ FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
-user_id = message.from_user.id
+
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "JUST CLICK ON OPEN WEBSITE AND GET FREE LECTURES,\n\nJOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulse'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>\n\n<b><a href='https://www.google.com/search?q=afrahtafreeh+site&oq=afrahtafreeh+site?user.id={user_id}'>Click on afrahtafreeh(.)site website which is on first or second position on google search.</a></b>",
+    "JUST CLICK ON OPEN WEBSITE AND GET FREE LECTURES,\n\nJOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulse'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>\n\n<b><a href='https://www.google.com/search?q=afrahtafreeh+site&oq=afrahtafreeh+site?'>Click on afrahtafreeh(.)site website which is on first or second position on google search.</a></b>",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
