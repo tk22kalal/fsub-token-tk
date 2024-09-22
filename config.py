@@ -83,6 +83,7 @@ FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
+user_id = message.from_user.id
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
