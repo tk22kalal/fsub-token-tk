@@ -288,7 +288,6 @@ async def start_command(client: Bot, message: Message):
         photo_url = "https://telegra.ph/file/f3f538226a9ddddb25b84.jpg"
         await client.send_photo(
             chat_id=message.chat.id,
-            photo=photo_url,
             caption=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
