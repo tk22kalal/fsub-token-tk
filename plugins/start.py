@@ -295,7 +295,7 @@ async def start_command(client: Bot, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=reply_markupx,
+            reply_markup=InlineKeyboardMarkup(out),
             protect_content=True
         )
         
