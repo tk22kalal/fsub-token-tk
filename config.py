@@ -87,7 +87,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "JOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulse'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>\n\n<b><a href='https://telegram.me/+4gXLl5ioye44ODk1'>CLICK HERE TO GET FREE LECTURES</a></b>",
+    "JOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulse'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>\n\n<b>COPY THIS AND SEARCH </b><code>afrahtafreeh site</code> <b>ON GOOGLE.DONT OPEN IN TELEGRAM BROWSER OTHERWISE YOU WILL DIRECTLY BANNED.</b>",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
