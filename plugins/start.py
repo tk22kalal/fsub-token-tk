@@ -286,17 +286,20 @@ async def start_command(client: Bot, message: Message):
         out = start_button(client)
         
         photo_url = "https://telegra.ph/file/f3f538226a9ddddb25b84.jpg"
-        await client.send_photo(
-            chat_id=message.chat.id,
-            caption=START_MSG.format(
+        
+        await message.reply_text(
+            text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}" if message.from_user.username else None,
+                username=f"@{message.from_user.username}"
+                if message.from_user.username
+                else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
             reply_markup=InlineKeyboardMarkup(out),
-            protect_content=True
+            disable_web_page_preview=True,
+            quote=True,
         )
         
 
