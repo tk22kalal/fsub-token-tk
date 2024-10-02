@@ -280,7 +280,7 @@ async def start_command(client: Bot, message: Message):
 
         out = start_button(client)
         keyboard = [
-            [KeyboardButton('Open Website', web_app=WebAppInfo(url=https://sites.google.com/view/importantnoticenextpulse/home))]
+            [KeyboardButton('Open Website', web_app=WebAppInfo(url="https://sites.google.com/view/importantnoticenextpulse/home"))]
         ]
         reply_markupx = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
         
