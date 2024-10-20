@@ -23,3 +23,5 @@ validators
 tenacity
 aiohttp
 markdown
+pyrogram
+openpyxl
