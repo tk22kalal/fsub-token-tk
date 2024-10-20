@@ -2,6 +2,7 @@ import re
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from openpyxl import Workbook
 from bot import Bot  # Your bot instance
 from config import ADMINS, CUSTOM_CAPTION, CHANNEL_ID
 from helper_func import encode
@@ -15,6 +16,11 @@ def clean_caption(caption):
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
+    # Create a new workbook and sheet
+    workbook = Workbook()
+    sheet = workbook.active
+    sheet.append(["Caption", "Final Link"])  # Add headers
+
     # ===== Phase 1: Create Batch Links for Videos =====
     while True:
         try:
@@ -51,17 +57,22 @@ async def batch(client: Client, message: Message):
             await second_message.reply("❌ Invalid message. Please try again.", quote=True)
 
     # Create batch links for videos (Phase 1)
+    xyz = "{\"X\"}"
     batch_links = []
     total_messages = 0  # Track the number of generated messages for Phase 2
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
             string = f"get-{msg_id * abs(client.db_channel.id)}"
             base64_string = await encode(string)
-            link = f"https://t.me/{client.username}?start={base64_string}"
-            batch_links.append((link, msg_id))
+            link = f"https://t.me/{xyz}?start={base64_string}"
 
-            # Send to the DB channel
-            await client.send_message(CHANNEL_ID, text=f"Video Link: {link}")
+            # Fetch the message object
+            current_message = await client.get_messages(CHANNEL_ID, msg_id)
+
+            # Determine the caption for this message
+            caption = clean_caption(current_message.caption or "")
+            await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")
+            sheet.append([caption, ""])  # Append caption with an empty final link
             total_messages += 1  # Increment the message count
         except FloodWait as e:
             await asyncio.sleep(e.value)
@@ -90,7 +101,11 @@ async def batch(client: Client, message: Message):
         # Send the final batch links to the admin
         for final_link in final_links:
             await client.send_message(message.from_user.id, text=f"Batch Link: {final_link}")
+            # Append final link to the Excel sheet
+            sheet.cell(row=len(sheet['A']) + 1, column=2, value=final_link)
 
-        await message.reply("✅ Phase 2 batch processing completed.")
+        # Save the workbook
+        workbook.save("batch_links.xlsx")
+        await message.reply("✅ Phase 2 batch processing completed. Data saved to 'batch_links.xlsx'.")
     except Exception as e:
         await message.reply(f"Error during Phase 2: {e}")
