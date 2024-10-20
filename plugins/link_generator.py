@@ -60,6 +60,8 @@ async def batch(client: Client, message: Message):
     # Create batch links for videos (Phase 1)
     xyz = "{\"X\"}"
     total_messages = 0  # Track the number of generated messages for Phase 2
+    captions = []  # Store captions for Phase 2
+
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
             string = f"get-{msg_id * abs(client.db_channel.id)}"
@@ -69,11 +71,10 @@ async def batch(client: Client, message: Message):
 
             # Determine the caption for this message
             caption = clean_caption(current_message.caption or "")
+            captions.append(caption)  # Store the caption for Phase 2
 
             # Send to the DB channel
             await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")            
-            html_format = f"<tr><td><a data-href='{link}' target='_blank'>{caption}</a></td></tr>"
-            sheet.append([html_format])  # Save the HTML format to Excel
             total_messages += 1  # Increment the message count
         except FloodWait as e:
             await asyncio.sleep(e.value)
@@ -91,6 +92,7 @@ async def batch(client: Client, message: Message):
         # Create batch links of batch links (Phase 2)
         xyz = "{{botUsername}}"
         final_links = []
+        
         for msg_id in range(first_batch2_msg_id, last_batch2_msg_id + 1):
             try:
                 string = f"get-{msg_id * abs(client.db_channel.id)}"
@@ -101,9 +103,9 @@ async def batch(client: Client, message: Message):
                 await message.reply(f"Error generating batch link: {e}")
 
         # Send the final batch links to the admin and add them to the Excel file
-        for final_link in final_links:
-            html_format = f"<tr><td><a data-href='{final_link}' target='_blank'>Batch Link</a></td></tr>"
-            sheet.append([html_format])  # Add final links to the Excel file
+        for final_link, caption in zip(final_links, captions):
+            html_format = f"<tr><td><a data-href='{final_link}' target='_blank'>{caption}</a></td></tr>"
+            sheet.append([html_format])  # Save the HTML format to Excel
             await client.send_message(message.from_user.id, text=f"Batch Link: {final_link}")
 
         await message.reply("✅ Phase 2 batch processing completed.")
