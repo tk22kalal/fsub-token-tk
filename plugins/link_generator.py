@@ -97,7 +97,7 @@ async def batch(client: Client, message: Message):
             try:
                 string = f"get-{msg_id * abs(client.db_channel.id)}"
                 base64_string = await encode(string)
-                final_link = f"https://t.me/{xyz}?start={base64_string}"
+                final_link = f"https://telegram.me/{xyz}?start={base64_string}"
                 final_links.append(final_link)
             except Exception as e:
                 await message.reply(f"Error generating batch link: {e}")
