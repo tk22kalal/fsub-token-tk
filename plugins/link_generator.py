@@ -20,7 +20,7 @@ async def batch(client: Client, message: Message):
     workbook = openpyxl.Workbook()
     sheet = workbook.active
     sheet.title = "Batch Links"
-    sheet.append(["Caption", "Final Link"])  # Add headers
+    sheet.append(["HTML Format"])  # Add headers
 
     # ===== Phase 1: Create Batch Links for Videos =====
     while True:
@@ -71,8 +71,9 @@ async def batch(client: Client, message: Message):
             caption = clean_caption(current_message.caption or "")
 
             # Send to the DB channel
-            await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")
-            sheet.append([caption])  # Add caption to the Excel file
+            await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")            
+            html_format = f"<tr><td><a data-href='{link}' target='_blank'>{caption}</a></td></tr>"
+            sheet.append([html_format])  # Save the HTML format to Excel
             total_messages += 1  # Increment the message count
         except FloodWait as e:
             await asyncio.sleep(e.value)
@@ -94,14 +95,15 @@ async def batch(client: Client, message: Message):
             try:
                 string = f"get-{msg_id * abs(client.db_channel.id)}"
                 base64_string = await encode(string)
-                final_link = f"https://telegram.me/{xyz}?start={base64_string}"
+                final_link = f"https://t.me/{xyz}?start={base64_string}"
                 final_links.append(final_link)
             except Exception as e:
                 await message.reply(f"Error generating batch link: {e}")
 
         # Send the final batch links to the admin and add them to the Excel file
         for final_link in final_links:
-            sheet.append(["", final_link])  # Add final links to the Excel file
+            html_format = f"<tr><td><a data-href='{final_link}' target='_blank'>Batch Link</a></td></tr>"
+            sheet.append([html_format])  # Add final links to the Excel file
             await client.send_message(message.from_user.id, text=f"Batch Link: {final_link}")
 
         await message.reply("✅ Phase 2 batch processing completed.")
