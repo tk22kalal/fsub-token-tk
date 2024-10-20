@@ -72,9 +72,7 @@ async def batch(client: Client, message: Message):
 
             # Send to the DB channel
             await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")
-
-            # Add caption and link to the Excel file
-            sheet.append([caption, link])
+            sheet.append([caption])  # Add caption to the Excel file
             total_messages += 1  # Increment the message count
         except FloodWait as e:
             await asyncio.sleep(e.value)
@@ -90,12 +88,13 @@ async def batch(client: Client, message: Message):
         last_batch2_msg_id = s_msg_id + total_messages  # Last message based on total generated in Phase 1
 
         # Create batch links of batch links (Phase 2)
+        xyz = "{{botUsername}}"
         final_links = []
         for msg_id in range(first_batch2_msg_id, last_batch2_msg_id + 1):
             try:
                 string = f"get-{msg_id * abs(client.db_channel.id)}"
                 base64_string = await encode(string)
-                final_link = f"https://t.me/{client.username}?start={base64_string}"
+                final_link = f"https://telegram.me/{xyz}?start={base64_string}"
                 final_links.append(final_link)
             except Exception as e:
                 await message.reply(f"Error generating batch link: {e}")
