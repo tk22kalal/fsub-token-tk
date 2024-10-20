@@ -221,7 +221,6 @@ async def start_command(client: Bot, message: Message):
         # List of possible replacement URLs
         replacement_urls = [
             "https://t.me/testingdoubletera_bot?",
-            "https://t.me/testingclonepavo3_bot?",
             "https://t.me/Mynextpulsembbs_bot?"
         ]
 
