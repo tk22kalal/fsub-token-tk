@@ -1,9 +1,9 @@
 import re
 import asyncio
 from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from bot import Bot  # Assuming your bot is instantiated as 'Bot'
-from config import ADMINS, CUSTOM_CAPTION, CHANNEL_ID, CD_CHANNEL  # Adjust accordingly
+from pyrogram.types import Message
+from bot import Bot  # Your bot instance
+from config import ADMINS, CUSTOM_CAPTION, CHANNEL_ID, CD_CHANNEL
 from helper_func import encode, get_message_id
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
@@ -56,18 +56,18 @@ async def batch(client: Client, message: Message):
                 quote=True
             )
 
-    # Create batch links for videos
+    # Create batch links for videos (Phase 1)
     batch_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
             string = f"get-{msg_id * abs(client.db_channel.id)}"
             base64_string = await encode(string)
             link = f"https://t.me/{client.username}?start={base64_string}"
-            batch_links.append((link, msg_id))  # Store link and msg_id as tuple
+            batch_links.append((link, msg_id))
         except Exception as e:
             await message.reply(f"Error generating link for message {msg_id}: {e}")
 
-    # Send batch links to the main channel
+    # Send batch links to the DB channel and collect message links (Phase 1)
     sent_links = []
     for link, msg_id in batch_links:
         try:
@@ -82,12 +82,12 @@ async def batch(client: Client, message: Message):
             else:
                 caption = clean_caption(current_message.caption or "")
 
-            # Send to the main channel and save the sent message link
+            # Send to DB channel and store the message link
             sent_message = await client.send_message(
                 chat_id=CHANNEL_ID, 
                 text=f"{caption}\n{link}"
             )
-            sent_links.append(sent_message.link)  # Save the link of the sent message
+            sent_links.append(sent_message.link)  # Store the message link
         except FloodWait as e:
             await asyncio.sleep(e.value)
             await client.send_message(
@@ -99,21 +99,40 @@ async def batch(client: Client, message: Message):
 
     await message.reply("✅ Batch processing of videos completed.")
 
-    # ===== Phase 2: Create Batch Link for Batch Links =====
-    xyz = "{{botUsername}}"  # Replace with your bot's username if needed
-    final_links = []
-
-    for sent_link in sent_links:
+    # ===== Phase 2: Create Batch Link for Sent Batch Links =====
+    while True:
         try:
-            string = f"get-{hash(sent_link)}"  # Use hash to create a unique identifier
+            # Ask the admin for the first and last message link in DB channel (Phase 2)
+            first_batch_link_message = await client.ask(
+                chat_id=message.from_user.id,
+                text="Send the First Message Link from the DB Channel (Batch 1)...",
+                timeout=60
+            )
+            first_batch_msg_id = await get_message_id(client, first_batch_link_message)
+
+            last_batch_link_message = await client.ask(
+                chat_id=message.from_user.id,
+                text="Send the Last Message Link from the DB Channel (Batch 1)...",
+                timeout=60
+            )
+            last_batch_msg_id = await get_message_id(client, last_batch_link_message)
+
+            break  # Exit the loop if both IDs are valid
+        except Exception as e:
+            await message.reply(f"Error: {e}. Please try again.")
+
+    # Generate final batch links (Phase 2)
+    final_links = []
+    for msg_id in range(min(first_batch_msg_id, last_batch_msg_id), max(first_batch_msg_id, last_batch_msg_id) + 1):
+        try:
+            string = f"get-{msg_id * abs(client.db_channel.id)}"
             base64_string = await encode(string)
-            link = f"https://t.me/{client.username}?start={base64_string}"
-            final_link = f"https://t.me/{xyz}?start={base64_string}"
+            final_link = f"https://t.me/{client.username}?start={base64_string}"
             final_links.append(final_link)
         except Exception as e:
             await message.reply(f"Error generating batch link: {e}")
 
-    # Send the final batch link to the user
+    # Send the final batch links to the admin
     for final_link in final_links:
         try:
             await client.send_message(
