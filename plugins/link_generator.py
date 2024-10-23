@@ -7,12 +7,16 @@ from config import ADMINS, CUSTOM_CAPTION, CHANNEL_ID
 from helper_func import encode
 from pyrogram.errors import FloodWait
 import openpyxl
+import logging
 
 # Function to clean captions
 def clean_caption(caption):
     caption = re.sub(r'\s?[@#]\S+', '', caption)  # Remove # and @ tags
     caption = re.sub(r'http\S+', '', caption)  # Remove URLs
     return caption
+
+# Logging setup
+logging.basicConfig(level=logging.INFO)
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
@@ -61,25 +65,43 @@ async def batch(client: Client, message: Message):
     xyz = "{\"X\"}"
     total_messages = 0  # Track the number of generated messages for Phase 2
     captions = []  # Store captions for Phase 2
+    retries = 3  # Number of retries for failed messages
 
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
-        try:
-            string = f"get-{msg_id * abs(client.db_channel.id)}"
-            base64_string = await encode(string)
-            link = f"https://t.me/{xyz}?start={base64_string}"
-            current_message = await client.get_messages(CHANNEL_ID, msg_id)
+        attempt = 0
+        success = False
+        while attempt < retries and not success:
+            try:
+                attempt += 1
+                string = f"get-{msg_id * abs(client.db_channel.id)}"
+                base64_string = await encode(string)
+                link = f"https://t.me/{xyz}?start={base64_string}"
+                current_message = await client.get_messages(CHANNEL_ID, msg_id)
 
-            # Determine the caption for this message
-            caption = clean_caption(current_message.caption or "")
-            captions.append(caption)  # Store the caption for Phase 2
+                # Determine the caption for this message
+                caption = clean_caption(current_message.caption or "")
+                captions.append(caption)  # Store the caption for Phase 2
 
-            # Send to the DB channel
-            await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")            
-            total_messages += 1  # Increment the message count
-        except FloodWait as e:
-            await asyncio.sleep(e.value)
-        except Exception as e:
-            await message.reply(f"Error generating link for message {msg_id}: {e}")
+                # Send to the DB channel
+                await client.send_message(CHANNEL_ID, text=f"{caption}\n{link}")
+                total_messages += 1  # Increment the message count
+                success = True  # Mark success for this message
+
+                logging.info(f"Link generated for message {msg_id}: {link}")
+
+                # Add a short delay to avoid rate limiting
+                await asyncio.sleep(2)  # Sleep 2 seconds between each request
+
+            except FloodWait as e:
+                logging.warning(f"FloodWait: Sleeping for {e.value} seconds")
+                await asyncio.sleep(e.value)  # Wait for the duration specified by FloodWait
+            except Exception as e:
+                if attempt == retries:
+                    logging.error(f"Error generating link for message {msg_id}: {e}")
+                    await message.reply(f"Error generating link for message {msg_id}: {e}")
+                else:
+                    logging.info(f"Retrying message {msg_id} (attempt {attempt})")
+                    await asyncio.sleep(2)  # Short sleep before retrying
 
     await message.reply("✅ Phase 1 batch processing completed.")
 
@@ -92,26 +114,14 @@ async def batch(client: Client, message: Message):
         # Create batch links of batch links (Phase 2)
         xyz = "{{botUsername}}"
         final_links = []
-        retries = 3  # Number of retries for any failed attempt
         for msg_id in range(first_batch2_msg_id, last_batch2_msg_id + 1):
-            attempt = 0  # Track the number of attempts
-            success = False  # Track success for each message
-            while attempt < retries and not success:
-                try:
-                    attempt += 1
-                    # Generate the encoded string
-                    string = f"get-{msg_id * abs(client.db_channel.id)}"
-                    base64_string = await encode(string)
-                    final_link = f"https://telegram.me/{xyz}?start={base64_string}"
-                    final_links.append(final_link)
-                    success = True  # Mark success for this message
-                except FloodWait as e:
-                    await asyncio.sleep(e.value)  # Wait for the duration specified by FloodWait
-                except Exception as e:
-                    if attempt == retries:  # If we've reached max retries, log the error
-                        await message.reply(f"Error generating batch link for message {msg_id}: {e}")
-                    else:
-                        await asyncio.sleep(2)  # Short sleep before retrying
+            try:
+                string = f"get-{msg_id * abs(client.db_channel.id)}"
+                base64_string = await encode(string)
+                final_link = f"https://telegram.me/{xyz}?start={base64_string}"
+                final_links.append(final_link)
+            except Exception as e:
+                await message.reply(f"Error generating batch link: {e}")
 
         # Send the final batch links to the admin and add them to the Excel file
         for final_link, caption in zip(final_links, captions):
