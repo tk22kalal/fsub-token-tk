@@ -92,15 +92,26 @@ async def batch(client: Client, message: Message):
         # Create batch links of batch links (Phase 2)
         xyz = "{{botUsername}}"
         final_links = []
-        
+        retries = 3  # Number of retries for any failed attempt
         for msg_id in range(first_batch2_msg_id, last_batch2_msg_id + 1):
-            try:
-                string = f"get-{msg_id * abs(client.db_channel.id)}"
-                base64_string = await encode(string)
-                final_link = f"https://telegram.me/{xyz}?start={base64_string}"
-                final_links.append(final_link)
-            except Exception as e:
-                await message.reply(f"Error generating batch link: {e}")
+            attempt = 0  # Track the number of attempts
+            success = False  # Track success for each message
+            while attempt < retries and not success:
+                try:
+                    attempt += 1
+                    # Generate the encoded string
+                    string = f"get-{msg_id * abs(client.db_channel.id)}"
+                    base64_string = await encode(string)
+                    final_link = f"https://telegram.me/{xyz}?start={base64_string}"
+                    final_links.append(final_link)
+                    success = True  # Mark success for this message
+                except FloodWait as e:
+                    await asyncio.sleep(e.value)  # Wait for the duration specified by FloodWait
+                except Exception as e:
+                    if attempt == retries:  # If we've reached max retries, log the error
+                        await message.reply(f"Error generating batch link for message {msg_id}: {e}")
+                    else:
+                        await asyncio.sleep(2)  # Short sleep before retrying
 
         # Send the final batch links to the admin and add them to the Excel file
         for final_link, caption in zip(final_links, captions):
