@@ -1,15 +1,15 @@
 # (©)Codexbotz
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
+
 import re
 import os
 import random
 import asyncio
 import pymongo
 from datetime import datetime, timedelta
-from time import time
-from pymongo import MongoClient
 from pyrogram import Client, filters
+from pymongo import MongoClient
 from bot import Bot
 from config import DB_URI as MONGO_URL
 from config import (
@@ -24,28 +24,26 @@ from config import (
     API_ID,
     API_HASH,
 )
-#from database.sql import add_user, delete_user, full_userbase, query_msg
 from database.mongo import collection, adds_user, del_user, fulls_userbase, present_user
-from pyrogram import filters
 from pyrogram.enums import ParseMode
-from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, ChannelInvalid
+from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, WebAppInfo, ReplyKeyboardMarkup, KeyboardButton
 
-from helper_func import decode, get_messages, subsall, subsch, subsgc
-from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
+from helper_func import decode, get_messages
+from helper import b64_to_str, str_to_b64, get_current_time
 
-from .button import fsub_button, start_button
-
+# MongoDB setup
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db["bots"]
+referral_collection = mongo_db["referrals"]
+video_requests = mongo_db["video_requests"]
 
-dbclient = pymongo.MongoClient(DB_URI)
-database = dbclient[DB_NAME]
-video_requests = database["video_requests"]
-
+# Limits and referral settings
 MAX_VIDEOS_PER_DAY = 80
 TIME_LIMIT = timedelta(hours=24)
+REFERRAL_BONUS_THRESHOLD = 5  # Referrals needed to increase video limit
+
+SECONDS = int(os.getenv("SECONDS", "10"))  # Waiting time before delete
 
 async def record_video_request(user_id: int):
     now = datetime.utcnow()
@@ -59,8 +57,30 @@ def has_exceeded_limit(user_id: int):
         "timestamp": {"$gte": start_time}
     })
     return request_count >= MAX_VIDEOS_PER_DAY
-    
-SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
+
+async def generate_referral_code(user_id):
+    return f"https://t.me/mynextpulseX_bot?start=ref_{user_id}"
+
+async def get_total_referrals(user_id):
+    return referral_collection.count_documents({"referred_by": user_id})
+
+async def increment_max_videos(user_id):
+    user_data = referral_collection.find_one({"user_id": user_id})
+    if user_data:
+        new_limit = min(user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) + 1, 100)
+        referral_collection.update_one(
+            {"user_id": user_id},
+            {"$set": {"MAX_VIDEOS_PER_DAY": new_limit}},
+            upsert=True
+        )
+
+async def handle_new_referral(referred_by, new_user_id):
+    if not await present_user(new_user_id):
+        referral_collection.insert_one({"user_id": new_user_id, "referred_by": referred_by})
+        await adds_user(new_user_id)
+        total_referrals = await get_total_referrals(referred_by)
+        if total_referrals % REFERRAL_BONUS_THRESHOLD == 0:
+            await increment_max_videos(referred_by)
 
 async def schedule_deletion(msgs, delay):
     await asyncio.sleep(delay)
@@ -70,109 +90,40 @@ async def schedule_deletion(msgs, delay):
         except Exception as e:
             print(f"Error deleting message: {e}")
 
-START_TIME = datetime.utcnow()
-START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
-TIME_DURATION_UNITS = (
-    ("week", 60 * 60 * 24 * 7),
-    ("day", 60**2 * 24),
-    ("hour", 60**2),
-    ("min", 60),
-    ("sec", 1),
-)
-
-import re
-
-
-
-
-async def _human_time_duration(seconds):
-    if seconds == 0:
-        return "inf"
-    parts = []
-    for unit, div in TIME_DURATION_UNITS:
-        amount, seconds = divmod(int(seconds), div)
-        if amount > 0:
-            parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
-    return ", ".join(parts)
-
-IF_VERIFY = False  # Set this to False to skip token verification
-
-async def handle_verification(client, message):
-    """Handle token verification."""
-    user_id = message.from_user.id
-    if message.text.startswith("/start token_"):
-        try:
-            ad_msg = b64_to_str(message.text.split("/start token_")[1])
-            if int(user_id) != int(ad_msg.split(":")[0]):
-                await client.send_message(
-                    message.chat.id,
-                    "This Token Is Not For You or maybe you are using 2 telegram apps; if yes, then uninstall this one...",
-                    reply_to_message_id=message.id,
-                )
-                return False
-            if int(ad_msg.split(":")[1]) < get_current_time():
-                await client.send_message(
-                    message.chat.id,
-                    "Token Expired. Regenerate A New Token.",
-                    reply_to_message_id=message.id,
-                )
-                return False
-            if int(ad_msg.split(":")[1]) > int(get_current_time() + 86400):
-                await client.send_message(
-                    message.chat.id,
-                    "Don't Try To Be Over Smart.",
-                    reply_to_message_id=message.id,
-                )
-                return False
-            query = {"user_id": user_id}
-            collection.update_one(
-                query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
-            )
-            url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"
-            await client.send_message(
-                message.chat.id,
-                "Congratulations! Ads token refreshed successfully! It will expire after 24 hours.\n\n</b>",
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton('OPEN WEBSITE', web_app=WebAppInfo(url=url_with_user_id))]
-                    ]
-                ),
-                reply_to_message_id=message.id,
-            )
-            return True
-        except BaseException:
-            await client.send_message(
-                message.chat.id,
-                "Invalid Token.",
-                reply_to_message_id=message.id,
-            )
-            return False
-    return True
-
-@Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
+@Bot.on_message(filters.command("start") & filters.private)
 async def start_command(client: Bot, message: Message):
     user_id = message.from_user.id
+    referral_code = message.text.split("_")[-1] if "ref_" in message.text else None
 
-    # Skip token verification if not required
-    if not IF_VERIFY or await handle_verification(client, message):
-        # Check if the user has exceeded the limit of requests
-        if has_exceeded_limit(user_id):
-            await message.reply_text("You have exceeded the limit of 20 videos in 24 hours. Please try again later.")
-            return
+    if referral_code and referral_code.isdigit():
+        referred_by = int(referral_code)
+        if referred_by != user_id:
+            await handle_new_referral(referred_by, user_id)
 
-        if not await present_user(user_id):
-            # Add new user to the database and grant them a valid token for 86,400 seconds (24 hours)
-            try:
-                await adds_user(user_id)
-            except Exception as e:
-                await message.reply_text(f"An error occurred: {e}")
-                return
-    
-    text = message.text
-    if len(text) > 7:
+    referral_link = await generate_referral_code(user_id)
+    total_referrals = await get_total_referrals(user_id)
+    max_videos = referral_collection.find_one({"user_id": user_id}).get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY)
+
+    # Inline button to share referral link
+    referral_buttons = InlineKeyboardMarkup(
+        [[InlineKeyboardButton("Share Referral Link", url=referral_link)]]
+    )
+
+    await message.reply_text(
+        text=(
+            f"👤 User ID: `{user_id}`\n"
+            f"🔗 Your Referral Link: `{referral_link}`\n"
+            f"🌟 Total Referrals: `{total_referrals}`\n"
+            f"📹 Daily Video Limit: `{max_videos}`"
+        ),
+        reply_markup=referral_buttons,
+        disable_web_page_preview=True,
+        quote=True,
+    )
+
+    if len(message.text) > 7:
         try:
-            base64_string = text.split(" ", 1)[1]
+            base64_string = message.text.split(" ", 1)[1]
         except BaseException:
             return
         string = await decode(base64_string)
@@ -207,37 +158,19 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
-        temp_msg = await message.reply("Please wait...")
-        try:
-            messages = await get_messages(client, ids)
-        except Exception:
-            await message.reply_text("Something went wrong..!")
-            return
-        finally:
-            await temp_msg.delete()
-
-        
-
-        # List of possible replacement URLs
         replacement_urls = [
             "https://t.me/testingdoubletera_bot?",
             "https://t.me/Mynextpulsembbs_bot?"
         ]
 
         snt_msgs = []
-        
         for msg in messages:
-            # Check and replace the specific URL pattern in the message text
             if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                # Choose a random URL from the list
                 replacement_url = random.choice(replacement_urls)
                 msg.text = msg.text.replace("https://t.me/{\"X\"}?", replacement_url)
-                
             if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                # Choose a random URL from the list
                 replacement_url = random.choice(replacement_urls)
                 msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", replacement_url)
-        
 
             caption = (CUSTOM_CAPTION.format(
                 previouscaption=msg.caption.html if msg.caption else "",
@@ -257,9 +190,7 @@ async def start_command(client: Bot, message: Message):
                 )
                 await asyncio.sleep(0.5)
                 snt_msgs.append(snt_msg)
-                
-                await record_video_request(id)
-                
+                await record_video_request(user_id)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 snt_msg = await msg.copy(
@@ -275,34 +206,24 @@ async def start_command(client: Bot, message: Message):
 
         asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
-        # Create the custom reply button with the user_id in the URL
-
-        out = start_button(client)
         keyboard = [
             [KeyboardButton('Open Website', web_app=WebAppInfo(url="https://sites.google.com/view/importantnoticenextpulse/home"))]
         ]
         reply_markupx = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
         
-        photo_url = "https://telegra.ph/file/f3f538226a9ddddb25b84.jpg"
-        
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
             reply_markup=reply_markupx,
             disable_web_page_preview=True,
             quote=True,
-        )
-        
-
-
-    return
+        )    
+        return
                 
 
 @Bot.on_message(filters.command("start") & filters.private)
