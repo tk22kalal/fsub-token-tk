@@ -102,7 +102,9 @@ async def start_command(client: Bot, message: Message):
 
     referral_link = await generate_referral_code(user_id)
     total_referrals = await get_total_referrals(user_id)
-    max_videos = referral_collection.find_one({"user_id": user_id}).get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY)
+    user_data = referral_collection.find_one({"user_id": user_id})
+    max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
+
 
     # Inline button to share referral link
     referral_buttons = InlineKeyboardMarkup(
