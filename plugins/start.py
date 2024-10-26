@@ -103,29 +103,12 @@ async def start_command(client: Bot, message: Message):
         if referred_by != user_id:
             await handle_new_referral(referred_by, user_id)
 
-    referral_link = await generate_referral_code(user_id)
-    total_referrals = await get_total_referrals(user_id)
-    user_data = referral_collection.find_one({"user_id": user_id})
-    max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
-
     # Inline button to share referral link
     referral_buttons = InlineKeyboardMarkup(
-        [[InlineKeyboardButton("Share Referral Link", url=referral_link)]]
+        [[InlineKeyboardButton("Get Referral Link", callback_data="get_referral_link")]]
     )
 
-    await message.reply_text(
-        text=(
-            f"👤 User ID: **{user_id}**\n"
-            f"🔗 Your Referral Link: `{referral_link}`\n"
-            f"🌟 Total Referrals: **{total_referrals}**\n"
-            f"📹 Daily Video Limit: **{max_videos}**"
-        ),
-
-        reply_markup=referral_buttons,
-        disable_web_page_preview=True,
-        quote=True,
-    )
-
+    
     if len(message.text) > 7:
         try:
             base64_string = message.text.split(" ", 1)[1]
@@ -226,6 +209,24 @@ async def start_command(client: Bot, message: Message):
 
     return
                 
+@Bot.on_callback_query(filters.regex("get_referral_link"))
+async def send_referral_link(client: Bot, callback_query):
+    user_id = callback_query.from_user.id
+    referral_link = await generate_referral_code(user_id)
+    total_referrals = await get_total_referrals(user_id)
+    user_data = referral_collection.find_one({"user_id": user_id})
+    max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
+
+    await callback_query.message.reply_text(
+        text=(
+            f"👤 User ID: **{user_id}**\n"
+            f"🔗 Your Referral Link: `{referral_link}`\n"
+            f"🌟 Total Referrals: **{total_referrals}**\n"
+            f"📹 Daily Video Limit: **{max_videos}**"
+        ),
+        disable_web_page_preview=True,
+        quote=True,
+    )
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
