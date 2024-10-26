@@ -96,6 +96,8 @@ async def schedule_deletion(msgs, delay):
 @Bot.on_message(filters.command("start") & filters.private)
 async def start_command(client: Bot, message: Message):
     user_id = message.from_user.id
+    text = message.text
+
     referral_code = message.text.split("_")[-1] if "ref_" in message.text else None
 
     if referral_code and referral_code.isdigit():
