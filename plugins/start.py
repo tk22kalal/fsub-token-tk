@@ -150,6 +150,7 @@ async def start_command(client: Bot, message: Message):
 
         replacement_urls = [
             "https://t.me/testingdoubletera_bot?",
+            "https://t.me/testingclonepavo3_bot?",
             "https://t.me/Mynextpulsembbs_bot?"
         ]
 
@@ -225,7 +226,7 @@ async def send_referral_details(client: Bot, message: Message):
             f"👤 User ID: <b>{user_id}</b>\n"
             f"🌟 Total Referrals: <b>{total_referrals}</b>\n"
             f"📹 Daily Video Limit: <b>{max_videos}</b>\n\n"
-            f"🔗 Your Referral Link: {referral_link}"
+            f"🔗 Your Referral Link: <code>{referral_link}<code>"
         ),
         disable_web_page_preview=True,
         quote=True,
