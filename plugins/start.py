@@ -223,7 +223,7 @@ async def send_referral_details(client: Bot, message: Message):
             f"👤 User ID: <b>{user_id}</b>\n"
             f"🌟 Total Referrals: <b>{total_referrals}</b>\n"
             f"📹 Daily Video Limit: <b>{max_videos}</b>\n\n"
-            f"🔗 Your Referral Link: `{referral_link}`"
+            f"🔗 Your Referral Link: {referral_link}"
         ),
         disable_web_page_preview=True,
         quote=True,
