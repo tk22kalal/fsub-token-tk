@@ -219,10 +219,10 @@ async def send_referral_link(client: Bot, callback_query):
 
     await callback_query.message.reply_text(
         text=(
-            f"👤 User ID: **{user_id}**\n"
-            f"🔗 Your Referral Link: `{referral_link}`\n"
-            f"🌟 Total Referrals: **{total_referrals}**\n"
-            f"📹 Daily Video Limit: **{max_videos}**"
+            f"👤 User ID: <b>{user_id}</b>\n"
+            f"🌟 Total Referrals: <b>{total_referrals}</b>\n"
+            f"📹 Daily Video Limit: <b>{max_videos}</b>\n\n"
+            f"🔗 Your Referral Link: `{referral_link}`"           
         ),
         disable_web_page_preview=True,
         quote=True,
