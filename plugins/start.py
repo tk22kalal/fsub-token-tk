@@ -209,24 +209,31 @@ async def start_command(client: Bot, message: Message):
 
     return
                 
-@Bot.on_callback_query(filters.regex("get_referral_link"))
-async def send_referral_link(client: Bot, callback_query):
+from pyrogram.types import CallbackQuery
+
+# Callback handler for referral link button
+@Bot.on_callback_query(filters.regex(r"^get_referral_link$"))
+async def send_referral_link(client: Bot, callback_query: CallbackQuery):
     user_id = callback_query.from_user.id
     referral_link = await generate_referral_code(user_id)
     total_referrals = await get_total_referrals(user_id)
     user_data = referral_collection.find_one({"user_id": user_id})
     max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
 
+    # Respond to callback query
+    await callback_query.answer()  # Optional: Give feedback on button click
+
     await callback_query.message.reply_text(
         text=(
             f"👤 User ID: <b>{user_id}</b>\n"
             f"🌟 Total Referrals: <b>{total_referrals}</b>\n"
             f"📹 Daily Video Limit: <b>{max_videos}</b>\n\n"
-            f"🔗 Your Referral Link: `{referral_link}`"           
+            f"🔗 Your Referral Link: `{referral_link}`"
         ),
         disable_web_page_preview=True,
         quote=True,
     )
+
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
