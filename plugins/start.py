@@ -31,7 +31,7 @@ from database.mongo import collection, adds_user, del_user, fulls_userbase, pres
 from pyrogram.enums import ParseMode
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, WebAppInfo
-
+from pyrogram.types import ReplyKeyboardMarkup, KeyboardButton
 from helper_func import decode, get_messages
 from helper import b64_to_str, str_to_b64, get_current_time
 
