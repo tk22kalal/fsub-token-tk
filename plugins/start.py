@@ -1,6 +1,9 @@
 # (©)Codexbotz
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
+# (©)Codexbotz
+# Recode by @mrismanaziz
+# t.me/SharingUserbot & t.me/Lunatic0de
 
 import re
 import os
@@ -27,7 +30,7 @@ from config import (
 from database.mongo import collection, adds_user, del_user, fulls_userbase, present_user
 from pyrogram.enums import ParseMode
 from pyrogram.errors import FloodWait
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, WebAppInfo, ReplyKeyboardMarkup, KeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, WebAppInfo
 
 from helper_func import decode, get_messages
 from helper import b64_to_str, str_to_b64, get_current_time
@@ -39,7 +42,7 @@ referral_collection = mongo_db["referrals"]
 video_requests = mongo_db["video_requests"]
 
 # Limits and referral settings
-MAX_VIDEOS_PER_DAY = 80
+MAX_VIDEOS_PER_DAY = 30
 TIME_LIMIT = timedelta(hours=24)
 REFERRAL_BONUS_THRESHOLD = 5  # Referrals needed to increase video limit
 
@@ -105,7 +108,6 @@ async def start_command(client: Bot, message: Message):
     user_data = referral_collection.find_one({"user_id": user_id})
     max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
 
-
     # Inline button to share referral link
     referral_buttons = InlineKeyboardMarkup(
         [[InlineKeyboardButton("Share Referral Link", url=referral_link)]]
@@ -113,11 +115,12 @@ async def start_command(client: Bot, message: Message):
 
     await message.reply_text(
         text=(
-            f"👤 User ID: `{user_id}`\n"
+            f"👤 User ID: **{user_id}**\n"
             f"🔗 Your Referral Link: `{referral_link}`\n"
-            f"🌟 Total Referrals: `{total_referrals}`\n"
-            f"📹 Daily Video Limit: `{max_videos}`"
+            f"🌟 Total Referrals: **{total_referrals}**\n"
+            f"📹 Daily Video Limit: **{max_videos}**"
         ),
+
         reply_markup=referral_buttons,
         disable_web_page_preview=True,
         quote=True,
@@ -208,11 +211,6 @@ async def start_command(client: Bot, message: Message):
 
         asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
-        keyboard = [
-            [KeyboardButton('Open Website', web_app=WebAppInfo(url="https://sites.google.com/view/importantnoticenextpulse/home"))]
-        ]
-        reply_markupx = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-        
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
@@ -224,7 +222,8 @@ async def start_command(client: Bot, message: Message):
             reply_markup=referral_buttons,
             disable_web_page_preview=True,
             quote=True,
-        )    
+        )
+
     return
                 
 
