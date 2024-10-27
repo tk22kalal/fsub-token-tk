@@ -61,7 +61,7 @@ async def channel_post(client: Client, message: Message):
         [
             [
                 InlineKeyboardButton(
-                    "Video Link", url=f"{link}"
+                    "RESEND ME", url=f"{link}"
                 )
             ]
         ]
@@ -94,7 +94,7 @@ async def new_post(client: Client, message: Message):
         [
             [
                 InlineKeyboardButton(
-                    "Video Link", url=f"{link}"                    
+                    "RESEND", url=f"{link}"                    
                 )
             ]
         ]
