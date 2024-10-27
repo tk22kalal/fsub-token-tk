@@ -318,7 +318,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>29. Joint Disorders Part yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODk1NjUzNTkwMzU1MTc)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -407,7 +407,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>61: Heme Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkzMDc4MDQyMzI5MTY5MDM)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -465,7 +465,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>31.CPR</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkzMzg4NjY5ODc5MTk2NDA)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -532,7 +532,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>41. Community Ophthalmology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkzNzk5NDk5ODY0NzE2NDc)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -596,7 +596,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>38: Acts & Legal sections of Importance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk0MTgwMjY5MTE5NTg4NzM)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -649,7 +649,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>28 short topic on derna.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk0NDUwODE1Njk1NDE5MDI)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -699,7 +699,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>24. Public health and Legal aspects related to Mental Health</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk0NjkxMzAxNTQwNjAxNTA)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -789,7 +789,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>63 Yw. carcinoma larynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk1MzMyNTk3MTI3NzU0Nzg)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -856,7 +856,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>41.MSK: Trauma rapid review</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk2NTY1MDg3MDg0MzE0OTk)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -961,7 +961,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>81: Systemic Pathology Images - Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk3MzU2Njg2MzI0NzA3MzI)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1096,7 +1096,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>110 Vulval cancer</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk4NDQ4ODkyODcxNTc3NzU)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1143,7 +1143,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Pharmacology Recent updates</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk5NjgxMzgyODI4MTM3OTY)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1254,7 +1254,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>82 Surgical instruments</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk2MTU0MjU3MDk4Nzk0OTI)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1382,7 +1382,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>102.Genetics and Health</b>](https://t.me/{{\"X\"}}?start=Z2V0LTk5NDcwOTU3NzEzNjAzMjk)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1466,7 +1466,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>56. PALS Guidelines</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDY2ODA3NDcyNjYzNTY)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1686,7 +1686,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>17. lower-limb-venous-drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTgxNTY5NDcwNDEzMjQ3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1780,7 +1780,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>8. Female Reproductive Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ4NzA1MTAyMTkzMzU2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1852,7 +1852,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>4. alcohol-metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk0Nzk4MjIyNTE5OTk4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -1990,7 +1990,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>4. drug-interactions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA3MDI0OTUwMjcxODIy)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2047,7 +2047,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2. Forensic Psychiatry Part-2.mkv</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM4MDg3NzA1Mjc0NTU5)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2188,7 +2188,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>8. sampling-probability</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTUyMzE4NDgxNzM2MjM3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2262,7 +2262,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>3. ENT Surgeries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk5NDEzNjI2NDE3ODA2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2392,7 +2392,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>11. Phototheraphy for Neonatal Jaundice</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA0NjI2MTgzNjg1MTQx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2491,7 +2491,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2. Modifield Radical Mastectomy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc2NzcxOTM3MjM5ODg1)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2537,7 +2537,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>1. Radiotherapy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk1ODEwMzk5OTgzNDk4)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2583,7 +2583,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>1. Brain Death</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODEyODQ0ODE0MDE3MjU3)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2628,7 +2628,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>1. Electro Convulsive Therapy(Miscellaneous Topics)</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI4ODc3MjAzNjk2MDg5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2680,7 +2680,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2. Slipped Capital Femoral Epiphysis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODUxOTIzNzYzODU5NDEw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2733,7 +2733,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6. Bedside Tests in Dermatology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODc4OTc4NDIxNDQyNDM5)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2881,7 +2881,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>4. Dermatology Image Discussion .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ1NzE5MzM1MzQ1NzIx)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -2956,7 +2956,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>49. Immunity Antigen Antibody Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk0ODE4NTI4NzM3MTQ0)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3047,7 +3047,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>65. Tissue Processing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU5OTUwMTExODA3Mzk5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3103,7 +3103,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>30. Community Ophthalmology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzkwMDEwODQyNDU1MjA5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3203,7 +3203,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>74. Lapro Hysteroscopy for Workup of an Infertile Women atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY0MTYwNjQ0NzE5ODA3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3425,7 +3425,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Zollinger Ellison Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjYwNTU3NDE4Mjg1NDk5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3544,7 +3544,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Upper Limb Ulnar Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM2NzExMjY5MjU5OTUx)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3657,7 +3657,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Special Senses Vision atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODIzODg3Mzg4MTM4NjAw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -3768,7 +3768,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Vitamins Water Soluble Vitamins atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA5MDU5NDU4MzA3Mzk1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4100,7 +4100,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Restrictive Lung Disease Smoking Related Rld and Pulmonary Alveolar Protienosis and Jist All of Restrictive Lung Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE1Njc4OTEwOTE1MDU3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4269,7 +4269,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>8. Qrp - Microbiology by Dr Mamta Jawa 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU4OTY4MzkzNjY5NjE4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4386,7 +4386,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>7. Infectious Chemotherapy - 6. Miscellaneous - Drugs for Pseudomembranous Enterocolitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDUwMTUyNjA5OTY3OTc1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4451,7 +4451,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>24. Organic Irritants - Organic Irritants atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg5MjMxNTU5ODEwMTI4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4612,7 +4612,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>28. Qrp - Psm by Dr Rajasi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI0NTA0ODQ3NzI1Mjcz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4709,7 +4709,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>9. Complications of Suppurative Otitis Media 1 - Chronic Suppurative Otitis Media atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk1NjQ4NTc2OTI1MDkw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -4808,7 +4808,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>14. Eyelids and Lacrimal Apparatus - Lacrimal System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY4Nzk2MzU0ODM0NzYx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5017,7 +5017,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>19. Gastroenterology and Hepatology - Treatment of Portal Hypertension atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTUyMTY2ODExNzg2NDAy)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5153,7 +5153,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>7. Qrp - Surgery Session 2 by Dr Rajamahendran atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDYyMzg5NDkwODI4Mzcy)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5288,7 +5288,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>9. Gynaecological Oncology - Vulval Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTcxNjEwMTQ1NTE1NDE1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5383,7 +5383,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>19. Qrp - by Dr Sandeep Sharma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQwNzQ5ODI2MDA1Mzc4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5549,7 +5549,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>20. Qrp - Psychiatry by Dr Anoop 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzgxMDMzMjM1Njk1MTU4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5619,7 +5619,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>3. Ultrasound - Gynae Ultrasound atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI1MTIyMzA3MzExOTQ2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5678,7 +5678,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>17. Qrp - Ini Cet Quick Revision Program by Dr Khaleel Ahmed atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU4MTg5MTExMDI0NTM3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5741,7 +5741,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>21. Qrp - Ini Cet Qrp 2021 Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk1MjY0MDEyMTU2ODM2)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5798,7 +5798,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>15. Qrp - Ini Cet 2020 Recall Questions Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTI2MzI2NzY3MTU5NTcz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5896,7 +5896,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2 Peripheral nerve blocks atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTc1NDI1OTYwNTUwOTk2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -5941,7 +5941,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2 Peripheral nerve blocks atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTk0NDY0NDIzMjk0NjA5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6006,7 +6006,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>hypersensitivity & deficiency of phagocytosis Day 11 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNjMwNTM3MzAwMDcxOTgx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6176,7 +6176,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>5. Endophthalmitis Panophthalmitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNzc0ODI4ODA3MTgxNDY5)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6256,7 +6256,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>10.Peripheral Nerve Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzODI4OTM4MTIyMzQ3NTI3)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6326,7 +6326,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>20.Twin pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzODczMDI3MTkzOTY0MzE1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6413,7 +6413,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>5.3.Genito Urinary Fistula atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzOTMzMTQ4NjU1MjU5OTM1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6764,7 +6764,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>15.Toxicology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0MjU4ODA2NTcwNjExMjEw)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6833,7 +6833,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>1.STD atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0MzAxODkzNjE3ODczMDcx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -6965,7 +6965,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>5 Myeloid Neoplasms atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NDA4MTA4MTk5NDk1MzMz)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7020,7 +7020,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>11. X-Rays in Rhinology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NDM3MTY2OTA1Nzg4MjE2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7111,7 +7111,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6.3 Vitamins MCQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NTAyMjk4NDg4ODU4NDcx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7184,7 +7184,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>5. Myeloid Neoplasms atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NTQ5MzkzNjMzNTQwMDQw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7229,7 +7229,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6.Duodenum-duodenal atresia, sma syndrome, ipsid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NTY4NDMyMDk2MjgzNjUz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
         
         page_links, has_more = paginate_links(links, page)
@@ -7300,7 +7300,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>3. MCQ discussion chapter 6 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NjEwNTE3MTE5MTkwNTg3)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7368,7 +7368,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>3. MCQ discussion chapter 6 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NjUyNjAyMTQyMDk3NTIx)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7486,7 +7486,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>4. Aneurysm, AV Fistula,TOS atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0NzQ0Nzg4MzgyNzUwODA1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7636,7 +7636,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Trible Health atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0ODY5MDM5NDAyNzYxNzUz)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7673,7 +7673,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>9. CT abdomen, Mammography atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE0OTIyMTQ2NjkzNTcyODg0)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7781,7 +7781,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Respiratory System MCQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MDAxMzA2NjE3NjEyMTE3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7846,7 +7846,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>4. Regulation of respiration - Neural & Chemical control, Zones of flow in lung atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MDQwMzg1NTY3NDU0Mjcw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7914,7 +7914,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6.7.UPPER LIMB MCQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MDgyNDcwNTkwMzYxMjA0)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -7969,7 +7969,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>15.Toxicology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MTExNTI5Mjk2NjU0MDg3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8037,7 +8037,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6.7.UPPER LIMB MCQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MTUzNjE0MzE5NTYxMDIx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8233,7 +8233,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>8.Hepatitis E atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MzIzOTU4NDU5ODk4NjEx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8276,7 +8276,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>1.STD atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1MzQwOTkyODczOTMyMzcw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8345,7 +8345,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6. Virology MCQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1Mzg0MDc5OTIxMTk0MjMx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8479,7 +8479,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2. Uveal tract MCQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NDkyMjk4NTUxNTI2MzQ3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8531,7 +8531,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>6.1 Vesciculobullous disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NTE4MzUxMTg0NzU0NDQ5)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8619,7 +8619,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>2. Drugs to treat Asthma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NTgwNDc2Njk0NzU5OTIz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8681,7 +8681,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Surgery Dr. Sujoy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NjE2NTQ5NTcxNTM3Mjk1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8754,7 +8754,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Surgery(Gen Breast Trauma Vascular Shock Plastic Surgery Nutrition Transplant Hernia) atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NjYzNjQ0NzE2MjE4ODY0)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8849,7 +8849,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Surgery Urology INICET PYQ atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NzMyNzg0Mzk2NzA4ODI3)",	
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8898,7 +8898,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Surgery GIT App Test and Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1NzU1ODMwOTU2ODcyMTQ4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -8963,7 +8963,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Kidney & Adrenal - Dr. Sujoy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1Nzk0OTA5OTA2NzE0MzAx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9016,7 +9016,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>ANATOMY MIST PART 9 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE2MTU0ODUzNjYwNDY4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9047,7 +9047,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST PATHOLOGY DR. KUNAL PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE5MTYwOTI2NzI1MjQ5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9080,7 +9080,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST BIOCHEMISTRY PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTI3MTc3MTIxNTY0NjY1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9115,7 +9115,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST PATHOLOGY DR. KUNAL PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTM0MTkxMjkyMDQ5MTU0)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9154,7 +9154,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQ1MjEzNTU5OTUzMzUx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9188,7 +9188,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST PEDIATRICS PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTUxMjI1NzA2MDgyOTEz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9220,7 +9220,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST RADIOLOGY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTU1MjMzODAzNTAyNjIx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9255,7 +9255,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST PSYCHIATRY PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTYyMjQ3OTczOTg3MTEw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9293,7 +9293,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST PSM PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTcxMjY2MTkzMTgxNDUz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9332,7 +9332,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST MICROBIOLOGY PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTgxMjg2NDM2NzMwNzIz)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9370,7 +9370,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST OPHTHALMOLOGY PART 8 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg5MzAyNjMxNTcwMTM5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9416,7 +9416,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST SURGERY PART 17</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA2MzM3MDQ1NjAzODk4)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9456,7 +9456,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST ENT PART 11 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE3MzU5MzEzNTA4MDk1)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9488,7 +9488,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST DERMATOLOGY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDIwMzY1Mzg2NTcyODc2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9527,7 +9527,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST OBS & GYNE PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDMwMzg1NjMwMTIyMTQ2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9565,7 +9565,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>MIST ORTHOPAEDICS PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM5NDAzODQ5MzE2NDg5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9598,7 +9598,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Mist physiology part 4 Dr Arun Swami</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQzNDExOTQ2NzM2MTk3)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9654,7 +9654,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Radio Rapid revision  by Dr Zainab Vohra part 2 720p25.0fps 1311.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcwNDY2NjA0MzE5MjI2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9766,7 +9766,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>05. INI CET May & Nov 2019 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTcyNjczMDg4NTIxNzgw)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9824,7 +9824,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Amsterdam Dwarfism, Patau Syndrome, Types of Dactyly.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY2NjcxMDk1NTAwNzkx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -9993,7 +9993,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Wilson Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA2OTU0NTA1MTkwNTcx)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -10043,7 +10043,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>revision-1.part002.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODMxMDAzMDg5NzA4ODE5)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -10138,7 +10138,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>revision-1.part002.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTAwMTQyNzcwMTk4Nzgy)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -10226,7 +10226,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>New Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYyMjY4MjgwMjA0MjU2)",
         ]
     
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
@@ -10265,7 +10265,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
         ]
       
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
       
         page_links, has_more = paginate_links(links, page)
@@ -10313,7 +10313,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
         ]
       
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
       
         page_links, has_more = paginate_links(links, page)
@@ -10428,7 +10428,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Chapter 8 Renal transplant & renal cystic disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDYwNDY2NjY2OTg3MTAy)",
         ]
       
-        X = "testingclonepavo_bot"
+        X = "mynextpulseX_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
       
         page_links, has_more = paginate_links(links, page)
