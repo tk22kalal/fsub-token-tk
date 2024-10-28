@@ -234,7 +234,6 @@ async def send_referral_details(client: Bot, message: Message):
         quote=True,
     )
 
-
 @Bot.on_message(filters.command("referrals") & filters.user(ADMINS) & filters.private)
 async def view_referrals(client: Bot, message: Message):
     # Dictionary to count the number of referrals for each referrer
@@ -252,21 +251,27 @@ async def view_referrals(client: Bot, message: Message):
     # Create a file to save referral summary information
     with open("referral_data_summary.txt", "w") as file:
         for referrer_id, count in referrer_counts.items():
-            # Get referrer details (username)
+            # Get referrer details (username) and current video limit
             referrer = await client.get_users(referrer_id)
             referrer_username = f"@{referrer.username}" if referrer and referrer.username else "Unknown"
+            
+            # Fetch the current daily video limit from the database
+            user_data = referral_collection.find_one({"user_id": referrer_id})
+            max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
 
-            # Write referrer info and referral count to the file
+            # Write referrer info, referral count, and daily video limit to the file
             referral_info = (
                 f"Referrer ID: {referrer_id}\n"
                 f"Referrer Username: {referrer_username}\n"
                 f"Total Referrals: {count}\n"
+                f"Daily Video Limit: {max_videos}\n"
                 f"---------------------------\n"
             )
             file.write(referral_info)
 
     # Send the file to the admin
     await message.reply_document("referral_data_summary.txt")
+
 
 
 @Bot.on_message(filters.command("start") & filters.private)
