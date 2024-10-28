@@ -224,40 +224,33 @@ async def send_referral_details(client: Bot, message: Message):
         quote=True,
     )
 
-@Bot.on_message(filters.command("referrals") & filters.user(ADMINS))
+@Bot.on_message(filters.command("referrals") & filters.user(ADMINS) & filters.private)
 async def view_referrals(client: Bot, message: Message):
     # Retrieve all referral data
     referrals_data = referral_collection.find()
 
-    referral_details = []
-    for data in referrals_data:
-        referred_by = data.get("referred_by")
-        user_id = data.get("user_id")
+    # Create a file to save referral information
+    with open("referral_data.txt", "w") as file:
+        for data in referrals_data:
+            referred_by = data.get("referred_by")
+            user_id = data.get("user_id")
 
-        # Get the referrer details (referred_by) and the referred user count
-        referrer = await client.get_users(referred_by) if referred_by else None
-        referrer_username = f"@{referrer.username}" if referrer and referrer.username else "N/A"
-        
-        # Find all users referred by this user
-        referral_count = referral_collection.count_documents({"referred_by": referred_by})
+            # Get the referrer details (referred_by) and the referred user count
+            referrer = await client.get_users(referred_by) if referred_by else None
+            referrer_username = f"@{referrer.username}" if referrer and referrer.username else "Unknown"
 
-        # Add each referral's info to the list
-        referral_details.append(
-            f"👤 Referrer ID: <b>{referred_by}</b> | Name: <b>{referrer.first_name}</b> | Username: <b>{referrer_username}</b>\n"
-            f"🔢 Referred Users: <b>{referral_count}</b>\n"
-            f"---------------------------"
-        )
+            referral_info = (
+                f"Referrer ID: {referred_by}\n"
+                f"Referrer Username: {referrer_username}\n"
+                f"Referred User ID: {user_id}\n"
+                f"---------------------------\n"
+            )
 
-    # Create a formatted message with all referral data
-    referral_text = "\n".join(referral_details) if referral_details else "No referral data available."
+            # Write each referral info to the file
+            file.write(referral_info)
 
-    # Send the referral data to the admin
-    await message.reply_text(
-        text=referral_text,
-        parse_mode=ParseMode.HTML,
-        disable_web_page_preview=True
-    )
-
+    # Send the file to the admin
+    await message.reply_document("referral_data.txt")
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
