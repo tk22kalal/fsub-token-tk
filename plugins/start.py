@@ -224,7 +224,7 @@ async def send_referral_details(client: Bot, message: Message):
         quote=True,
     )
 
-@Bot.on_message(filters.command("referrals") & filters.user(ADMINS) & filters.private)
+@Bot.on_message(filters.command("referrals") & filters.user(ADMINS))
 async def view_referrals(client: Bot, message: Message):
     # Retrieve all referral data
     referrals_data = referral_collection.find()
