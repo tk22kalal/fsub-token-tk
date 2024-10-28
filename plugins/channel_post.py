@@ -21,6 +21,7 @@ from helper_func import encode
             "start",
             "users",
             "broadcast",
+            "referrals",
             "ping",
             "uptime",
             "batch",
