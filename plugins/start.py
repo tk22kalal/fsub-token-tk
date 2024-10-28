@@ -226,31 +226,37 @@ async def send_referral_details(client: Bot, message: Message):
 
 @Bot.on_message(filters.command("referrals") & filters.user(ADMINS) & filters.private)
 async def view_referrals(client: Bot, message: Message):
+    # Dictionary to count the number of referrals for each referrer
+    referrer_counts = {}
+
     # Retrieve all referral data
     referrals_data = referral_collection.find()
 
-    # Create a file to save referral information
-    with open("referral_data.txt", "w") as file:
-        for data in referrals_data:
-            referred_by = data.get("referred_by")
-            user_id = data.get("user_id")
+    # Populate the dictionary with counts for each referrer
+    for data in referrals_data:
+        referred_by = data.get("referred_by")
+        if referred_by:
+            referrer_counts[referred_by] = referrer_counts.get(referred_by, 0) + 1
 
-            # Get the referrer details (referred_by) and the referred user count
-            referrer = await client.get_users(referred_by) if referred_by else None
+    # Create a file to save referral summary information
+    with open("referral_data_summary.txt", "w") as file:
+        for referrer_id, count in referrer_counts.items():
+            # Get referrer details (username)
+            referrer = await client.get_users(referrer_id)
             referrer_username = f"@{referrer.username}" if referrer and referrer.username else "Unknown"
 
+            # Write referrer info and referral count to the file
             referral_info = (
-                f"Referrer ID: {referred_by}\n"
+                f"Referrer ID: {referrer_id}\n"
                 f"Referrer Username: {referrer_username}\n"
-                f"Referred User ID: {user_id}\n"
+                f"Total Referrals: {count}\n"
                 f"---------------------------\n"
             )
-
-            # Write each referral info to the file
             file.write(referral_info)
 
     # Send the file to the admin
-    await message.reply_document("referral_data.txt")
+    await message.reply_document("referral_data_summary.txt")
+
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
