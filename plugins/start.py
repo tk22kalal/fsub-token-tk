@@ -68,16 +68,21 @@ async def get_total_referrals(user_id):
     return referral_collection.count_documents({"referred_by": user_id})
 
 async def increment_max_videos(user_id):
-    # Update MAX_VIDEOS_PER_DAY if user_data exists
-    user_data = referral_collection.find_one({"user_id": user_id})
-    if user_data:
-        current_limit = user_data.get("MAX_VIDEOS_PER_DAY", DEFAULT_MAX_VIDEOS_PER_DAY)
-        new_limit = min(current_limit + 1, 100)
-        referral_collection.update_one(
-            {"user_id": user_id},
-            {"$set": {"MAX_VIDEOS_PER_DAY": new_limit}},
-            upsert=True
-        )
+    # Calculate new video limit based on the referral count
+    total_referrals = await get_total_referrals(user_id)
+    additional_videos = total_referrals // REFERRAL_BONUS_THRESHOLD
+    new_limit = DEFAULT_MAX_VIDEOS_PER_DAY + additional_videos
+
+    # Cap the new limit at a maximum of 100
+    new_limit = min(new_limit, 100)
+    
+    # Update the user's daily video limit in the database
+    referral_collection.update_one(
+        {"user_id": user_id},
+        {"$set": {"MAX_VIDEOS_PER_DAY": new_limit}},
+        upsert=True
+    )
+
 
 async def handle_new_referral(referred_by, new_user_id):
     # Add referral entry and increment referrer’s limit if threshold met
