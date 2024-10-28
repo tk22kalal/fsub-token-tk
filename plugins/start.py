@@ -203,16 +203,22 @@ async def start_command(client: Bot, message: Message):
         )
 
     return
-                
+
 @Bot.on_message(filters.regex("Get Referral Link") & filters.private)
 async def send_referral_details(client: Bot, message: Message):
     user_id = message.from_user.id
     referral_link = await generate_referral_code(user_id)
+    
+    # Increment video limit if needed before getting the latest count
     total_referrals = await get_total_referrals(user_id)
+    if total_referrals % REFERRAL_BONUS_THRESHOLD == 0:
+        await increment_max_videos(user_id)
+    
+    # Retrieve the latest max video limit
     user_data = referral_collection.find_one({"user_id": user_id})
     max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
 
-    # Send referral details
+    # Send updated referral details to the user
     await message.reply_text(
         text=(
             f"👤 User ID: <b>{user_id}</b>\n"
@@ -223,6 +229,7 @@ async def send_referral_details(client: Bot, message: Message):
         disable_web_page_preview=True,
         quote=True,
     )
+
 
 @Bot.on_message(filters.command("referrals") & filters.user(ADMINS) & filters.private)
 async def view_referrals(client: Bot, message: Message):
