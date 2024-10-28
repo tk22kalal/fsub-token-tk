@@ -62,13 +62,17 @@ async def get_total_referrals(user_id):
 
 async def increment_max_videos(user_id):
     user_data = referral_collection.find_one({"user_id": user_id})
-    if user_data:
-        new_limit = min(user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) + 1, 100)
-        referral_collection.update_one(
-            {"user_id": user_id},
-            {"$set": {"MAX_VIDEOS_PER_DAY": new_limit}},
-            upsert=True
-        )
+    current_limit = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
+
+    # Calculate the new limit with a maximum cap
+    new_limit = min(current_limit + 1, 100)
+    
+    # Update the limit in the database
+    referral_collection.update_one(
+        {"user_id": user_id},
+        {"$set": {"MAX_VIDEOS_PER_DAY": new_limit}},
+        upsert=True
+    )
 
 async def handle_new_referral(referred_by, new_user_id):
     if not await present_user(new_user_id):
@@ -209,16 +213,16 @@ async def send_referral_details(client: Bot, message: Message):
     user_id = message.from_user.id
     referral_link = await generate_referral_code(user_id)
     
-    # Increment video limit if needed before getting the latest count
+    # Check referral count and increment the limit if needed
     total_referrals = await get_total_referrals(user_id)
     if total_referrals % REFERRAL_BONUS_THRESHOLD == 0:
         await increment_max_videos(user_id)
     
-    # Retrieve the latest max video limit
+    # Fetch the updated video limit from the database
     user_data = referral_collection.find_one({"user_id": user_id})
     max_videos = user_data.get("MAX_VIDEOS_PER_DAY", MAX_VIDEOS_PER_DAY) if user_data else MAX_VIDEOS_PER_DAY
 
-    # Send updated referral details to the user
+    # Send the updated details to the user
     await message.reply_text(
         text=(
             f"👤 User ID: <b>{user_id}</b>\n"
