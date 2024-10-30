@@ -1,3 +1,4 @@
+#"https://t.me/testingdoubletera_bot?",
 import re
 import os
 import random
@@ -161,7 +162,6 @@ async def start_command(client: Bot, message: Message):
             await temp_msg.delete()
 
         replacement_urls = [
-            "https://t.me/testingdoubletera_bot?",
             "https://t.me/testingclonepavo3_bot?",
             "https://t.me/Mynextpulsembbs_bot?"
         ]
