@@ -87,7 +87,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "JOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulsee'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>\n\n<b>COPY THIS AND SEARCH </b>\n<code>https://www.google.co.in/url?sa=t&source=web&rct=j&opi=89978449&url=https://afrahtafreeh.site/&ved=2ahUKEwi69Ibq3aaJAxXKyDgGHQprFQsQFnoECAoQAQ&usg=AOvVaw2QQLPo-csS_03x2ILqJvke</code> <b>\nON GOOGLE TO GET LECTURES. \n\nBelow given refferar code for you , on each 5 refferar your daily video limit will be increased and also can get forwardable latest batch videos.</b>",
+    "JOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulsee'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>\n\n<b>COPY THIS AND SEARCH </b>\n<code>afrahtafreeh site</code> <b>\nON GOOGLE TO GET LECTURES. \n\nBelow given referrar code for you , on each 5 referrar your daily video limit will be increased and also can get forwardable latest batch videos.</b>",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
