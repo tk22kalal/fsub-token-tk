@@ -162,7 +162,7 @@ async def start_command(client: Bot, message: Message):
             await temp_msg.delete()
 
         replacement_urls = [
-            "https://t.me/Mynextpulse1X_bot?",
+            "https://t.me/Mynextpulse1Xe_bot?",
             "https://t.me/Mynextpulse2X_bot?",
             "https://t.me/Mynextpulse4X_bot?"
         ]
