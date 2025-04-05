@@ -22,7 +22,6 @@ DB_NAME = os.environ.get("DB_NAME", "vjbotz")
 
 # Bot Information
 
-BOT_USERNAME = os.environ.get("BOT_USERNAME", "") # your bot username without @
 PICS = (os.environ.get('PICS', 'https://telegra.ph/file/473b7d1f25866692e7c0a.jpg https://telegra.ph/file/473b7d1f25866692e7c0a.jpg')).split() # Bot Start Picture
 
 # Auto Delete Information
