@@ -11,8 +11,6 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from config import DB_URI, DB_NAME
-import warnings
-warnings.filterwarnings("ignore", message="'StringField' object has no attribute 'default'")
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -31,7 +29,6 @@ COLLECTION_NAME = "Telegram_Files"
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-
 client = AsyncIOMotorClient(DB_URI)
 db = client[DB_NAME]
 instance = Instance.from_db(db)
@@ -42,13 +39,13 @@ instance = Instance.from_db(db)
 
 @instance.register
 class Media(Document):
-    file_id = fields.StrField(attribute='_id', required=True)
-    file_ref = fields.StrField(allow_none=True, default=None)
-    file_name = fields.StrField(required=True)
-    file_size = fields.IntField(required=True)
-    file_type = fields.StrField(allow_none=True, default=None)
-    mime_type = fields.StrField(allow_none=True, default=None)
-    caption = fields.StrField(allow_none=True, default=None)
+    file_id = fields.StrField(attribute='_id')
+    file_ref = fields.StrField(allow_none=True, default="")
+    file_name = fields.StrField(required=True, default="")
+    file_size = fields.IntField(required=True, default=0)
+    file_type = fields.StrField(allow_none=True, default="")
+    mime_type = fields.StrField(allow_none=True, default="")
+    caption = fields.StrField(allow_none=True, default="")
 
     class Meta:
         indexes = ('$file_name', )
@@ -57,7 +54,6 @@ class Media(Document):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
 
 async def get_file_details(query):
     filter = {'file_id': query}
@@ -68,7 +64,6 @@ async def get_file_details(query):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
 
 def encode_file_id(s: bytes) -> str:
     r = b""
@@ -89,7 +84,6 @@ def encode_file_id(s: bytes) -> str:
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
 
 def encode_file_ref(file_ref: bytes) -> str:
     return base64.urlsafe_b64encode(file_ref).decode().rstrip("=")
@@ -112,8 +106,3 @@ def unpack_new_file_id(new_file_id):
     )
     file_ref = encode_file_ref(decoded.file_reference)
     return file_id, file_ref
-
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
