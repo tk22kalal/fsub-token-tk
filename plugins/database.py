@@ -11,6 +11,8 @@ from pymongo.errors import DuplicateKeyError
 from umongo import Instance, Document, fields
 from motor.motor_asyncio import AsyncIOMotorClient
 from config import DB_URI, DB_NAME
+import warnings
+warnings.filterwarnings("ignore", message="'StringField' object has no attribute 'default'")
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
