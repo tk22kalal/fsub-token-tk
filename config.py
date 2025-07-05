@@ -73,6 +73,7 @@ UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "master")
 
 
 #Database MONGO
+MONGO_URL = os.environ.get("MONGO_URI", "")
 MONGO_URI = os.environ.get("MONGO_URI", "")
 MONGO_NAME = os.environ.get("MONGO_NAME", "")
 
