@@ -73,7 +73,7 @@ UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "master")
 
 
 #Database MONGO
-MONGO_URI = os.environ.get("MONGO_URL", "mongodb+srv://mynextpulse123:tk22kalal@cluster0.vpqt8v6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://mynextpulse123:tk22kalal@cluster0.vpqt8v6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 MONGO_URI = os.environ.get("MONGO_URI", "")
 MONGO_NAME = os.environ.get("MONGO_NAME", "")
 
